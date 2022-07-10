@@ -10,7 +10,7 @@ echo "2. Create an applet on https://ifttt.com/create"
 sleep 0.3
 echo "In the 'If this' section, add 'Webhooks' and select 'Receive a web request'. Press ENTER when you are done."
 read
-echo "3. In the 'Event Name' section, add 'command_run' or whatever event name you would like. Then click on 'Create trigger'."
+echo "3. In the 'Event Name' section, add 'finito' or whatever event name you would like. Then click on 'Create trigger'."
 sleep 0.3
 echo -n "When you are done, please type the event name here and press ENTER: "
 read EVENT_NAME
