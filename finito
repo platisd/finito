@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Set the webhook event name and access key either by setting the appropriate
-# environment variables or editing the default values below
+# environment variables or editing the default values below.
+# Alternatively, run the finito-config.sh script.
 
 EVENT_NAME=${IFTTT_WEBHOOK_EVENT:-"default_webhook_event"}
 # Your IFTTT webhook key from: https://ifttt.com/maker_webhooks/settings
