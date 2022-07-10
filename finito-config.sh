@@ -44,7 +44,7 @@ else
     INCLUDE_COMMAND_IN_MESSAGE=0
 fi
 sleep 0.3
-echo "If you are happy with this, press ENTER to continue otherwise rerun this script."
+echo "If you are happy with this, press ENTER to continue otherwise re-run this script."
 read
 echo "Will now download the finito script in the current working directory:" $(pwd)
 sleep 0.6
