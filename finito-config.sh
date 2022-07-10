@@ -48,14 +48,15 @@ echo "If you are happy with this, press ENTER to continue otherwise rerun this s
 read
 echo "Will now download the finito script in the current working directory:" $(pwd)
 sleep 0.6
-curl -o finito https://raw.githubusercontent.com/platisd/finito/master/finito
+FINITO_FILE="finito"
+curl -o ${FINITO_FILE} https://raw.githubusercontent.com/platisd/finito/master/finito
 echo "Finito script downloaded. Will now make it executable."
-chmod +x finito
+chmod +x ${FINITO_FILE}
 sleep 0.6
 echo "Finito script made executable. Will configure to use your IFTTT key and event name."
-sed -i "s/default_key/$ACCESS_KEY/g" finito
-sed -i "s/default_webhook_event/$EVENT_NAME/g" finito
-sed -i "s/INCLUDE_COMMAND_IN_MESSAGE=1/INCLUDE_COMMAND_IN_MESSAGE=$INCLUDE_COMMAND_IN_MESSAGE/g" finito
+sed -i "s/default_key/$ACCESS_KEY/g" ${FINITO_FILE}
+sed -i "s/default_webhook_event/$EVENT_NAME/g" ${FINITO_FILE}
+sed -i "s/INCLUDE_COMMAND_IN_MESSAGE=1/INCLUDE_COMMAND_IN_MESSAGE=$INCLUDE_COMMAND_IN_MESSAGE/g" ${FINITO_FILE}
 sleep 0.6
 echo "Finito script configured. I suggest you place it in a \"bin\" directory that is added to your CLI."
 sleep 0.6
