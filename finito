@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Set the webhook event name and access key either by setting the appropriate
+# environment variables or editing the default values below
+
+EVENT_NAME=${IFTTT_WEBHOOK_EVENT:-"default_webhook_event"}
+# Your IFTTT webhook key from: https://ifttt.com/maker_webhooks/settings
+ACCESS_KEY=${IFTTT_KEY:-"default_key"}
+# Change the variable below to toggle whether you want to include the
+# command you ran into the push notification message
+INCLUDE_COMMAND_IN_MESSAGE=1
+
+# Run the command
+COMMAND="$*"
+$($COMMAND)
+
+# Formulate the exit code text
+COMMAND_EXIT_CODE=$?
+if [ $COMMAND_EXIT_CODE -eq 0 ]
+then
+    COMMAND_RESULT=SUCCESS
+else
+    COMMAND_RESULT=FAILURE
+fi
+
+if [ $INCLUDE_COMMAND_IN_MESSAGE -eq 1 ]
+then
+    MESSAGE="$COMMAND"
+else
+    MESSAGE="hidden bash command"
+fi
+
+JSON_PAYLOAD='{"value1":"'${MESSAGE}'","value2":"'${COMMAND_RESULT}'"}'
+API_URL=https://maker.ifttt.com/trigger/${EVENT_NAME}/with/key/${ACCESS_KEY}
+
+CURL_OUTPUT=$(curl -X POST -H "Content-Type: application/json" -d "${JSON_PAYLOAD}" ${API_URL} 2>/dev/null)
+
+# Uncomment to see the output of the curl command in case of issues
+# echo ${CURL_OUTPUT}
+
+exit $COMMAND_EXIT_CODE
