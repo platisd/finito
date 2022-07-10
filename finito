@@ -13,7 +13,7 @@ INCLUDE_COMMAND_IN_MESSAGE=1
 
 # Run the command
 COMMAND="$*"
-$($COMMAND)
+$COMMAND
 
 # Formulate the exit code text
 COMMAND_EXIT_CODE=$?
