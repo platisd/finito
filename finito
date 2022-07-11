@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
-# Set the webhook event name and access key either by setting the appropriate
-# environment variables or editing the default values below.
-# Alternatively, run the finito-config.sh script.
+# finito is a tool that runs the command you supplied and then sends you
+# a push notification when the command has finished running
 
+# Before using it you need to configure the values of EVENT_NAME, ACCESS_KEY and
+# INCLUDE_COMMAND_IN_MESSAGE.
+# You may do so either by setting the appropriate environment variables
+# or editing the default values below.
+# Alternatively, run the finito-config.sh script which will do this for you.
+
+# The webhook event name you chose for your applet
 EVENT_NAME=${IFTTT_WEBHOOK_EVENT:-"default_webhook_event"}
 # Your IFTTT webhook key from: https://ifttt.com/maker_webhooks/settings
 ACCESS_KEY=${IFTTT_KEY:-"default_key"}
-# Change the variable below to toggle whether you want to include the
-# command you ran into the push notification message
+# Toggle whether you want to include the command you ran in the push notification message
 INCLUDE_COMMAND_IN_MESSAGE=1
 
 # Run the command
