@@ -41,6 +41,9 @@ or by executing the following command:
 source <(curl -s https://raw.githubusercontent.com/platisd/finito/master/finito-config.sh)
 ```
 
+After running the configuration script, the tool will be downloaded at the current working directory.
+Make sure the directory is included in your `PATH` variable.
+
 Alternatively, you may download [finito](finito) directly, make it executable and change the appropriate fields yourself.<br>
 Another way to configure `finito` is by setting the appropriate environment variables. Review the [script](finito)
 for further details.
