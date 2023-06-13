@@ -17,8 +17,8 @@ ACCESS_KEY=${IFTTT_KEY:-"default_key"}
 INCLUDE_COMMAND_IN_MESSAGE=1
 
 # Run the command
-COMMAND="$*"
-$COMMAND
+COMMAND="bash -i -c \"$*\""
+eval $COMMAND
 
 # Formulate the exit code text
 COMMAND_EXIT_CODE=$?
